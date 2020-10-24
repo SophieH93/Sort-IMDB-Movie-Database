@@ -121,6 +121,9 @@ function sortMoviesByAttr(movies, sortAttr) {
 
         let max_object = movies[j];
         let max_location = j;
+        let max = getMaxMovieObject(movies, j, sortAttr)
+        max_object = max_object;
+        max_location = max.max_index;
 
         for (let i = j; i < movies.length; i++) {
             if (movies[i][sortAttr] > max_object[sortAttr]) {
@@ -145,16 +148,16 @@ function sortMoviesByAttr(movies, sortAttr) {
  */
 function getMaxMovieObject(movies, start, sortAttr) {
     // Code from previous findMaxHelper() function
-    let maximum = numbers[start];
+    let max_object = movies[start];
     let max_location = start
 
-    for (let i = start; i < numbers.length; i++) {
-        if (numbers[i] > maximum) {
-            maximum = numbers[i]
+    for (let i = start; i < movies.length; i++) {
+        if (movies[i][sortAttr] > max_object[sortAttr]) {
+            max_object = movies[i]
             max_location = i
         }
     }
-    return { max_number: maximum, max_index: max_location }
+    return { max_onject: max_object, max_index: max_location }
 }
 
 
